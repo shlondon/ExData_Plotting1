@@ -1,7 +1,7 @@
 
 #Configurar el directorio de trabajo donde se encuentran los datos
 #Set the working directory where the data is located
-setwd("C:/Users/USUARIO/ExData_Plotting1")
+
 
 #Leer la base de datos
 #Read the database
