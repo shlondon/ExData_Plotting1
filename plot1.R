@@ -14,7 +14,7 @@ bd1 <- read.table("data directory",
 #Crea Plot 1
 #Create Plot 1
 hist(bd1$Global_active_power,
-     col = "green",
+     col = "red",
      main = "Global Active Power",
      xlab = "Global Active Power (kilowatts)")
 
