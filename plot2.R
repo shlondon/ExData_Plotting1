@@ -28,8 +28,8 @@ bdfeb <- bd1[bd1$Date=="1/2/2007" | bd1$Date=="2/2/2007",]
 #sáb es igual a Sat
 
 #On the x axis, in the Spanish language,
-#Thu equals Thu, Fri equals Fri, Sat and Sat equals
-plot(bdfeb$Time1, bdfeb$Global_active_power, type = "l",
+#jue equals Thu, vie equals Fri, sáb and Sat equals
+plot(bdfeb$Time1 , bdfeb$Global_active_power, type = "l",
      ylab = "Global Active Power (Kilowatts)",
      xlab = "")
 
