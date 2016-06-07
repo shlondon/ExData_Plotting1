@@ -10,17 +10,6 @@ bd1 <- read.table("data directory",
                   sep = ";",
                   na.strings = "?")
 
-#Crea una nueva variable tipo POSIXlt que integra la información
-#de la variable Date con la variable Time
-
-#Create a new POSIXlt variable (Time1) that integrates information 
-#from the variable Date with Time Variable
-bd1$Time1 <- paste(bd1$Date, bd1$Time)
-bd1$Time1 <- strptime(bd1$Time1, "%d/%m/%Y %H:%M:%S")
-
-#Another way to do it, without changing the whole computer time is using 
-#the setenv command like this : Sys.setenv(TZ='GMT')
-
 #Crea Plot 3
 #Create Plot 3
 
@@ -28,18 +17,28 @@ bd1$Time1 <- strptime(bd1$Time1, "%d/%m/%Y %H:%M:%S")
 #Create database with information for a period of 2 days in February, 2007
 bdfeb <- bd1[bd1$Date=="1/2/2007" | bd1$Date=="2/2/2007",]
 
-#En el eje x, en el idioma español jue es igual a Thu, vie es igual a Fri, y
-#sáb es igual a Sat
 
-#On the x axis, in the Spanish language,
-#jue equals Thu, vie equals Fri, sáb and Sat equals
+#Crea una nueva variable tipo POSIXlt que integra la información
+#de la variable Date con la variable Time
+
+#Create a new POSIXlt variable (Time1) that integrates information 
+#from the variable Date with Time Variable
+bdfeb$Time1 <- paste(bdfeb$Date, bdfeb$Time)
+bdfeb$Time1 <- strptime(bdfeb$Time1, "%d/%m/%Y %H:%M:%S")
+
+#Modificate the language, to spanish to english, this step is necesary because
+#i need values in x axis with English language
+language <- "English"
+Sys.setlocale("LC_TIME", language)
+
+#Plot
 plot(bdfeb$Time1, bdfeb$Sub_metering_1, type = "l", ylab = "Energy sub metering",
      xlab = "")
 lines(bdfeb$Time1, bdfeb$Sub_metering_2, type = "l", col="red")
 lines(bdfeb$Time1, bdfeb$Sub_metering_3, type = "l", col="blue")
-legend("topright",lty = 1, col = c("black", "red", "blue"),
+legend("topright",lty = c(1,1,1), col = c("black", "red", "blue"),
        legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
-       cex = 0.6)
+       cex = 1)
 
 #Crea una copia de Plot 3 en formato png
 #Create a copy of Plot 3 in png format
