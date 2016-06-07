@@ -11,9 +11,13 @@ bd1 <- read.table("data directory",
                   sep = ";",
                   na.strings = "?")
 
+#Crea base de datos con la información para un periodo de 2 dias en Febrero, 2007
+#Create database with information for a period of 2 days in February, 2007
+bdfeb <- bd1[bd1$Date=="1/2/2007" | bd1$Date=="2/2/2007",]
+
 #Crea Plot 1
 #Create Plot 1
-hist(bd1$Global_active_power,
+hist(bdfeb$Global_active_power,
      col = "red",
      main = "Global Active Power",
      xlab = "Global Active Power (kilowatts)")

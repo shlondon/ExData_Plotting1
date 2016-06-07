@@ -34,7 +34,7 @@ bdfeb <- bd1[bd1$Date=="1/2/2007" | bd1$Date=="2/2/2007",]
 #jue equals Thu, vie equals Fri, sáb and Sat equals
 
 #Plot row 1, col 1
-par(mfrow=c(2,2), mar =c(5,9,1,2))
+par(mfrow=c(2,2), mar =c(5,4,1,2))
 plot(bdfeb$Time1 , bdfeb$Global_active_power, type = "l",
      ylab = "Global Active Power (Kilowatts)",
      xlab = "")
