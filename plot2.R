@@ -13,11 +13,6 @@ bd1 <- read.table("data directory",
 #Crea una nueva variable tipo POSIXlt que integra la información
 #de la variable Date con la variable Time
 
-#Create a new POSIXlt variable (Time1) that integrates information 
-#from the variable Date with Time Variable
-bd1$Time1 <- paste(bd1$Date, bd1$Time)
-bd1$Time1 <- strptime(bd1$Time1, "%d/%m/%Y %H:%M:%S")
-
 #Crea Plot 2
 #Create Plot 2
 
@@ -25,8 +20,17 @@ bd1$Time1 <- strptime(bd1$Time1, "%d/%m/%Y %H:%M:%S")
 #Create database with information for a period of 2 days in February, 2007
 bdfeb <- bd1[bd1$Date=="1/2/2007" | bd1$Date=="2/2/2007",]
 
+#Create a new POSIXlt variable (Time1) that integrates information 
+#from the variable Date with Time Variable
+bdfeb$Time1 <- paste(bdfeb$Date, bdfeb$Time)
+bdfeb$Time1 <- strptime(bdfeb$Time1, "%d/%m/%Y %H:%M:%S")
+
 #En el eje x, en el idioma español jue es igual a Thu, vie es igual a Fri, y
 #sáb es igual a Sat
+
+#Modificate the language, to spanish to english
+language <- "English"
+Sys.setlocale("LC_TIME", language)
 
 #On the x axis, in the Spanish language,
 #jue equals Thu, vie equals Fri, sáb and Sat equals
